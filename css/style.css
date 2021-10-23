@@ -2,23 +2,45 @@
 body { 
   font-family: 'Alegreya Sans SC', 'serif';
   background: url("file:///c:/Users/pooki/Documents/UM - 2021 Fall/SI 339 (Web Design)/hw6-2021-main/images/concrete_seamless.png"),  #f1f1f1;
-  background-repeat: no-repeat;
+}
+
+@keyframes images{ 
+  from {width: 50px; opacity: 0; flex-direction: column;}
+  to {width: 425px; opacity: 1; flex-direction: row;}
+}
+
+#logo{
+  display: flex;
+  animation-name: images;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 header{ 
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  position:relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav_links{
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
 .nav_links:visited{ 
-  color: #50C7C7;
+  color: inherit;
+}
+
+.pricing {
+  display: flex;
+  flex-direction:column;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
 }
 
 .card > header{
@@ -30,56 +52,61 @@ header{
   border-top-right-radius: 7px;
 }
 
+
 .card {
   display:inline-flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-basis: 450px;
-}
-
-.pricing {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 
-
-@keyframes images{ 
-  from {width: 50px; opacity: 0; flex-direction: column;}
-  to {width: 425px; opacity: 1; flex-direction: row;}
-}
 
 .gallery img{ 
   display: flex;
   border: 10px solid  #50C7C7;
   margin: 10px;
   width: 300px;
-  animation-name: images;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  flex-grow: inherit;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: wrap-reverse;
 }
 
 
 @media screen and (min-width: 850px){
+  
+  #logo, nav{
+    position: sticky;
+    top: 0;
+    object-fit: fill;
+  }
+  
   header{ 
     display: inline-flex;
     justify-content: center;
     flex-direction: row;
+    align-items: center;
   }
 
   .nav_links{ 
     display: inline-flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-items: flex-end;
     text-align: right;
   }
 
+  .pricing{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+
   .card{
+    display: inline-flex;
     flex-basis: 250px;
     flex-grow: inherit;
+    justify-content: space-between;
+    align-items: stretch;
   }
 }
 
@@ -93,7 +120,7 @@ header{
 
 @media print{ 
   body{ 
-    background: #f1f1f1;
+   background-image: none;
   }
 
   nav, .nav_links{
@@ -102,20 +129,24 @@ header{
     text-align: center;
     padding: 0px 10px;
     word-wrap: normal;
+    justify-content: space-between;
   }
 
   .pricing{ 
-    align-items: baseline;
-  }
+      display: flex;
+      align-items: baseline;
+      flex-direction: row;
+    }
 
   .card{ 
     border: 2px solid #45ADDD; 
     flex-basis: 250px;
   }
 
-  .gallery{
+  #gallery, .gallery{
     visibility: hidden;
   }
+  
 
   /* ADD THUMBS UP EMOJIS */
 
