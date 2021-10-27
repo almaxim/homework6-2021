@@ -65,18 +65,16 @@ header{
 }
 
 
-.pricing .gallery img{ 
+.gallery { 
   display: flex;
-  justify-content: center;
   flex-flow: row wrap;
-  align-content: center;
+  justify-content: center;
 }
 
 .gallery img{
   border: 10px solid  #50C7C7;
   margin: 10px;
   width: 300px;
-  justify-content: center;
 }
 
 
